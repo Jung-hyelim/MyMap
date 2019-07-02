@@ -23,11 +23,6 @@ public class WebClientTest {
 	@Autowired
 	private WebTestClient webTestClient;
 	
-//	@Autowired
-//	private WebTestClient.Builder webTestClientBuilder;
-//	
-//	private WebTestClient webTestClient;
-	
 	@Value("${kakao.api.host}")
 	private String host;
 

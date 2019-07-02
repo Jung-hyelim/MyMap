@@ -7,6 +7,6 @@ public class TestData {
 	public static String password = "password";
 	
 	// Search
-	public static String keyword = "남산";
+	public static String keyword = "pasta";
 	public static int page = 1;
 }

@@ -24,7 +24,7 @@ import com.jhl.mymap.service.UsersService;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 @TestPropertySource("classpath:application-test.properties")
-public class SearchKeywordTest {
+public class SearchKeywordServiceTest {
 
 	@Autowired
 	private SearchService searchService;
