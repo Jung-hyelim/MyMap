@@ -15,13 +15,14 @@ import com.jhl.mymap.service.SearchService;
 public class SearchController {
 	
 	@Autowired
-	private SearchService sebClientService;
+	private SearchService searchService;
 
 	@GetMapping("/search/{keyword}")
 	public ApiResult searchKeyword(@PathVariable(value="keyword") String keyword, 
 			@RequestParam(value="page", defaultValue="1") int page, 
 			@AuthenticationPrincipal Users customUser) {
-		ApiResult apiResult = sebClientService.searchKeyword(keyword, page, customUser);
+		ApiResult apiResult = searchService.searchKeyword(keyword, page, customUser);
 		return apiResult;
 	}
+	
 }
