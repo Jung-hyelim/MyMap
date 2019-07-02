@@ -2,6 +2,7 @@ package com.jhl.mymap.users;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +27,21 @@ public class CreateUserTest {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	private Long userId;
+
+	@After
+	public void 사용자삭제() {
+		usersService.deleteUser(userId);
+	}
+	
 	@Test
 	public void 사용자생성() {
 		Users user = usersService.createUser(TestData.username, TestData.password);
+		userId = user.getId();
 		
 		assertThat(user).isNotNull();
 		assertThat(user.getId()).isNotNull();
 		assertThat(user.getUsername()).isEqualTo(TestData.username);
 		assertThat(user.getPassword()).isNotEqualTo(TestData.password);
-		assertThat(user.getPassword()).isEqualTo(passwordEncoder.encode(TestData.password));
 	}
 }

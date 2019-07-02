@@ -2,6 +2,7 @@ package com.jhl.mymap.users;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,10 +23,18 @@ public class LoadUserByUsernameTest {
 
 	@Autowired
 	private UsersService usersService;
+	
+	private Long userId;
 
 	@Before
 	public void 사용자생성() {
-		usersService.createUser(TestData.username, TestData.password);
+		Users user = usersService.createUser(TestData.username, TestData.password);
+		userId = user.getId();
+	}
+	
+	@After
+	public void 사용자삭제() {
+		usersService.deleteUser(userId);
 	}
 	
 	@Test
