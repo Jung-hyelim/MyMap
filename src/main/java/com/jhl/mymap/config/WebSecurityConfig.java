@@ -26,9 +26,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.headers().frameOptions().disable()
 				.and()
 			.formLogin()
-//				.loginPage("/login")
-//				.usernameParameter("id")
-//				.passwordParameter("pwd")
 				.and()
 			.logout()
 				.permitAll();
