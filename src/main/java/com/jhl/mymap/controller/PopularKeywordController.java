@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jhl.mymap.entity.PopularKeyword;
@@ -23,7 +24,7 @@ public class PopularKeywordController {
 	}
 	
 	@Scheduled(cron="0 * * * * *")
-	@GetMapping("/setPopular")
+	@PostMapping("/setPopular")
 	public void setPopularKeywords() {
 		popularKeywordService.setTop10();
 	}
