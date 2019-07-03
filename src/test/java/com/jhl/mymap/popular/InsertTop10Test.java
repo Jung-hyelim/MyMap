@@ -31,7 +31,6 @@ public class InsertTop10Test {
 	
 	@Before
 	public void 검색데이터저장() {
-		// 인기 검색어 데이터
 		Map<String, Integer> map = TestData.popularData();
 		
 		map.keySet().stream().forEach(k -> {

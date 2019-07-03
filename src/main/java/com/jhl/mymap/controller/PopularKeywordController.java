@@ -11,7 +11,7 @@ import com.jhl.mymap.entity.PopularKeyword;
 import com.jhl.mymap.service.PopularKeywordService;
 
 @RestController
-public class PopularController {
+public class PopularKeywordController {
 
 	@Autowired
 	private PopularKeywordService popularKeywordService;
