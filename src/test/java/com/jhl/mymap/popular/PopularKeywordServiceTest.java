@@ -23,7 +23,7 @@ import com.jhl.mymap.service.PopularKeywordService;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 @TestPropertySource("classpath:application-test.properties")
-public class SelectTop10Test {
+public class PopularKeywordServiceTest {
 
 	@Autowired
 	private PopularKeywordService popularKeywordService;
@@ -32,7 +32,7 @@ public class SelectTop10Test {
 	private SearchRepository searchRepository;
 	
 	@Before
-	public void 인기검색어TOP10저장() {
+	public void 테스트용데이터저장() {
 		Map<String, Integer> map = TestData.popularData();
 		
 		map.keySet().stream().forEach(k -> {
@@ -40,12 +40,16 @@ public class SelectTop10Test {
 				searchRepository.save(new Search(null, k, 1, null, null));
 			}
 		});
-
-		popularKeywordService.setTop10();
 	}
 	
 	@Test
-	public void 인기검색어TOP10조회() {
+	public void 인기검색어TOP10_저장_조회() {
+		// 인기검색어 저장
+		int cnt = popularKeywordService.setTop10();
+		
+		assertThat(cnt).isEqualTo(10);
+
+		// 인기검색어 조회
 		List<PopularKeyword> list = popularKeywordService.getTop10();
 		
 		assertThat(list).isNotEmpty();

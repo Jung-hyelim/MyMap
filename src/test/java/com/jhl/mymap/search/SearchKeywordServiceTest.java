@@ -39,7 +39,7 @@ public class SearchKeywordServiceTest {
 	
 	@Before
 	public void 사용자생성() {
-		user = usersService.createUser(TestData.username, TestData.password);
+		user = new Users(99L, TestData.username, TestData.password);
 	}
 	
 	@Test

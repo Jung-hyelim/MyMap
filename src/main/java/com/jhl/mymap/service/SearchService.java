@@ -50,7 +50,7 @@ public class SearchService {
 								.retrieve()
 								.bodyToMono(ApiResult.class)
 								.block();
-		
+
 		searchRepository.save(new Search(null, keyword, page, null, user));
 		
 		return result;
