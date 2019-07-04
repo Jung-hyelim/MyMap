@@ -32,15 +32,7 @@ public class SearchKeywordServiceTest {
 	@Autowired
 	private SearchRepository searchRepository;
 	
-	@Autowired
-	private UsersService usersService;
-
 	Users user = null;
-	
-	@Before
-	public void 사용자생성() {
-		user = new Users(99L, TestData.username, TestData.password);
-	}
 	
 	@Test
 	public void 키워드검색후_검색테이블에저장되었는지확인() {

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -24,9 +23,6 @@ public class UsersServiceTest {
 	@Autowired
 	private UsersService usersService;
 
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-	
 	@Test
 	public void 사용자생성_조회() {
 		// 사용자 생성
